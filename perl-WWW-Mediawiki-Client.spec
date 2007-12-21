@@ -20,6 +20,7 @@ BuildRequires:  perl-VCS-Lite
 BuildRequires:  perl-Exception-Class
 BuildRequires:  perl-XML-LibXML 
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 WWW::Mediawiki::Client provides a very simple cvs-like interface for
