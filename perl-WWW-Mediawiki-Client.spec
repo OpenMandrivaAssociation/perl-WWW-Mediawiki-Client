@@ -1,7 +1,7 @@
 %define module  WWW-Mediawiki-Client
 %define name    perl-%{module}
 %define version 0.31
-%define release %mkrel 2
+%define release %mkrel 4
 
 Name:           %{name}
 Version:        %{version}
