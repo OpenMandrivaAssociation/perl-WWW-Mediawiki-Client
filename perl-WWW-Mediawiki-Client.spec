@@ -1,16 +1,16 @@
-%define module  WWW-Mediawiki-Client
-%define name    perl-%{module}
-%define version 0.31
-%define release %mkrel 4
+%define upstream_name    WWW-Mediawiki-Client
+%define upstream_version 0.31
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release} 
+Name:           perl-%{upstream_name}
+Version:        %perl_convert_version %{upstream_version}
+Release:        %mkrel 1
+
 Summary:        Simple cvs-like interface for Mediawiki driven WikiWiki websites
 License:        Artistic
 Group:          Development/Perl
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/WWW/%{module}-%{version}.tar.bz2
+URL:            http://search.cpan.org/dist/%{upstream_name}
+Source0:        http://www.cpan.org/modules/by-module/WWW/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires: perl-devel
 %endif
@@ -20,7 +20,7 @@ BuildRequires:  perl-VCS-Lite
 BuildRequires:  perl-Exception-Class
 BuildRequires:  perl-XML-LibXML 
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 WWW::Mediawiki::Client provides a very simple cvs-like interface for
@@ -31,7 +31,7 @@ shorter alias, as in cvs.  Verbosity is controled through an output_level
 accessor method.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -52,5 +52,3 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_mandir}/*/*
 %{perl_vendorlib}/WWW
-
-
