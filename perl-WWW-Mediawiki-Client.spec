@@ -1,15 +1,13 @@
 %define upstream_name    WWW-Mediawiki-Client
-%define upstream_version 0.31
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.31
+Release:	6
 
 Summary:	Simple cvs-like interface for Mediawiki driven WikiWiki websites
 License:	Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/WWW-Mediawiki-Client
-Source0:	https://cpan.metacpan.org/authors/id/M/MA/MARKJ/WWW-Mediawiki-Client-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/M/MA/MARKJ/WWW-Mediawiki-Client-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -30,7 +28,7 @@ shorter alias, as in cvs.  Verbosity is controled through an output_level
 accessor method.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -51,9 +49,7 @@ make test
 %changelog
 * Tue Jul 28 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.310.0-1mdv2010.0
 + Revision: 401914
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.31-4mdv2009.0
+- rebuild using %0.31 Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.31-4mdv2009.0
 + Revision: 242157
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
